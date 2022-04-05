@@ -5,3 +5,7 @@ deploy.log
 .terraform/
 DemoWebsite.png
 architect.jpeg
+flask_app/.DS_Store
+flask_app/__pycache__/application.cpython-39.pyc
+flask_app/__pycache__/server.cpython-39.pyc
+flask_app/__pycache__/webapp.cpython-39.pyc
