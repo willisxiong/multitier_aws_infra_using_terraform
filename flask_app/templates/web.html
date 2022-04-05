@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reliable Mutitier Infrastructure</title>
+    </head>
+    <body>
+        <div>
+            <h1>Enjoy some classic television</h1>
+            <h2>What to watch next...</h2>
+        </div>
+        <div>
+            <table border="1">
+                <tr>
+                    <td>{{ customername }}, your recommendation is: </td>
+                    <td>{{ tv_series }}</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <table border="1">
+                <tr>
+                    <td>account_id:</td>
+                    <td>{{ account_id }}</td>
+                </tr>
+                <tr>
+                    <td>ami_id:</td>
+                    <td>{{ ami_id }}</td>
+                </tr>
+                <tr>
+                    <td>availability_zone:</td>
+                    <td>{{ az }}</td>
+                </tr>
+                <tr>
+                    <td>instance_id:</td>
+                    <td>{{ instance_id }}</td>
+                </tr>
+                <tr>
+                    <td>instance_type:</td>
+                    <td>{{ instance_type }}</td>
+                </tr>
+                <tr>
+                    <td>private_hostname:</td>
+                    <td>{{ private_hostname }}</td>
+                </tr>
+                <tr>
+                    <td>private_ipv4:</td>
+                    <td>{{ private_ip }}</td>
+                </tr>
+            </table>
+
+        </div>
+    </body>
+
+</html>
