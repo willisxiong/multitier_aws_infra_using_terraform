@@ -3,3 +3,5 @@ terraform.tfstate.backup
 .terraform.lock.hcl
 deploy.log
 .terraform/
+DemoWebsite.png
+architect.jpeg
