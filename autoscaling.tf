@@ -2,19 +2,6 @@
 data "aws_ssm_parameter" "amz_ami" {
   name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-kernel-5.10-hvm-x86_64-gp2"
 }
-/*
-resource "aws_launch_configuration" "asg-conf" {
-  image_id        = data.aws_ssm_parameter.linuxAmi.value
-  instance_type   = var.ec2-type
-  key_name        = "myvpckey"
-  security_groups = [aws_security_group.vm_sg.id]
-  user_data       = file("index_page.sh")
-
-  lifecycle {
-    create_before_destroy = true
-  }
-
-}*/
 
 resource "aws_launch_template" "web_template" {
   name                   = "web_template"
@@ -22,6 +9,9 @@ resource "aws_launch_template" "web_template" {
   image_id               = data.aws_ssm_parameter.amz_ami.value
   key_name               = "myvpckey"
   vpc_security_group_ids = [aws_security_group.vm_sg.id]
+  iam_instance_profile {
+    name = "ec2_profile"
+  }
 
   user_data = filebase64("index_page.sh")
 
