@@ -2,9 +2,14 @@
 
 yum -y update
 sleep 10
-yum -y install httpd
-systemctl enable httpd
-systemctl start httpd
-echo '<h1><center>Success</center></h1>' > healthcheck.html
-hostname >> healthcheck.html
-mv healthcheck.html /var/www/html/
+yum install python3
+pip3 install flask
+pip3 install boto3
+pip3 install ec2_metadata
+mkdir templates
+wget https://my-server-code-8371.s3.ap-east-1.amazonaws.com/webapp.py
+cd templates
+wget https://my-server-code-8371.s3.ap-east-1.amazonaws.com/templates/web.html
+cd ..
+export FLASK_APP=webapp.py
+flask run -h 0.0.0.0 -p 5000
