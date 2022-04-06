@@ -55,13 +55,13 @@ variable "sg_rules" {
     cidr_blocks = list(string)
   }))
   default = [
-   {
-      port       = 80
-      protocol   = "tcp"
+    {
+      port        = 80
+      protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
-   },
-   {
-      port       = 22
+    },
+    {
+      port        = 22
       protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
     }
