@@ -27,18 +27,18 @@ resource "aws_iam_role" "dynamodb_access" {
 
 # Step2
 resource "aws_iam_policy" "ec2_policy" {
-  name = "ec2_policy"
+  name        = "ec2_policy"
   description = "allow access to dynamodb"
 
   policy = jsonencode({
-      Version = "2012-10-17"
-      Statement = [
-          {
-              Action = ["dynamodb:*"]
-              Effect = "Allow"
-              Resource = "*"
-          }
-      ]
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action   = ["dynamodb:*"]
+        Effect   = "Allow"
+        Resource = "*"
+      }
+    ]
   })
 }
 
