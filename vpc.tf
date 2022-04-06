@@ -99,23 +99,15 @@ resource "aws_security_group" "alb_sg" {
       cidr_blocks = ingress.value["cidr_blocks"]
     }
   }
-  /*
+
   ingress {
-    description = "allow TCP80 traffic"
-    from_port   = 80
-    to_port     = 80
+    description = "allow port 5000 traffic"
+    from_port   = 5000
+    to_port     = 5000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    description = "allow ssh traffic"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-*/
   egress {
     description = "allow all outbound traffic"
     from_port   = 0
@@ -150,25 +142,14 @@ resource "aws_security_group" "vm_sg" {
     }
   }
 
-  /*
   ingress {
-    description = "allow alb traffic"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-
-  }
-
-  #allow ssh traffic for troubleshooting
-  ingress {
-    description = "allow ssh traffic"
-    from_port   = 22
-    to_port     = 22
+    description = "allow port 5000 traffic"
+    from_port   = 5000
+    to_port     = 5000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-*/
+
   egress {
     description = "allow all outbound"
     from_port   = 0
