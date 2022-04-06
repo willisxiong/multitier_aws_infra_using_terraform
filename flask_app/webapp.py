@@ -5,18 +5,15 @@ import random
 
 # Define environmental variable FLASK_APP=webapp.py
 app = Flask(__name__)
-client = boto3.client('dynamodb')
 
 def get_recomm(user_id):
-    str_id = str(user_id)
-    response = client.get_item(
-        TableName='recomm_service',
-        Key={
-            'UserID': {
-                'N': str_id
-            }
-        }
-    )
+    """Use dynamodb client, don't use resource to define a dynamodb object"""
+
+    dynamodb = boto3.client('dynamodb', region_name="ap-east-1")
+    key = {
+        "UserID": {"N": user_id}
+    }
+    response = dynamodb.get_item(TableName="recomm_service", Key=key)
     return response['Item']['CustomerName']['S'], response['Item']['RecommTV']['S']
 
 
