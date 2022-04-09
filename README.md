@@ -24,8 +24,7 @@ According to the diagram, we figure out that below resources need to be created:
 - a jump server for troubleshooting if you encounter error when loading the page, for example, to check if the ec2 instance run the user data during the creation or if required tcp port openned in security group, etc.
 
 Except the above resources, Terraform require a provider where you can set which cloud provider used and the corresponding version. We also need a variable file which makes our code resusable, so that you don't need to modify your resource creation code on next time building.
-The basic syntax of creating a resource in Terraform is as below:
-- syntax  
+The basic syntax of creating a resource in Terraform is as below:  
         
         resource "keyword" "name" {
             argument1 = something
@@ -35,8 +34,7 @@ The basic syntax of creating a resource in Terraform is as below:
 The key word is the resource name in Terraform, like aws_instance, aws_dynamodb_table, aws_autoscaling_group, it's easy to understand what resource will be created according to the name. You can find all the necessary information in Terraform documentation, in this lab, we use AWS as the provider, you can refer to <https://registry.terraform.io/providers/hashicorp/aws/latest/docs>.  
 The argument is the attribute you configure a resource, for example, you need to set the load balancer type or subnets as basic information to create an applicaiton load balancer, but in Terraform there is a good point that it already set the default value for you, like application load balancer is the default one so you don't even need to assign the value in your code. For better understanding, usually you can define some necessary values explicitly. 
 
-At last, you need to prepare your application code, the key point is to let your application communicate with dynamodb. Fortunately, aws provide a python framework boto3 for us to interact with dynamodb api, you just need to write simple codes to accomplish it. 
-- like: 
+At last, you need to prepare your application code, the key point is to let your application communicate with dynamodb. Fortunately, aws provide a python framework boto3 for us to interact with dynamodb api, you just need to write simple codes to accomplish it.  
         
         def get_recomm(user_id):
             dynamodb = boto3.client('dynamodb', region_name="ap-east-1")
