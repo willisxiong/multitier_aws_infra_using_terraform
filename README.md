@@ -26,6 +26,7 @@ According to the diagram, we figure out that below resources need to be created:
 Except the above resources, Terraform require a provider where you can set which cloud provider used and the corresponding version. We also need a variable file which makes our code resusable, so that you don't need to modify your resource creation code on next time building.
 The basic syntax of creating a resource in Terraform is as below:
 - syntax  
+        
         resource "keyword" "name" {
             argument1 = something
             argument2 = something
@@ -36,9 +37,8 @@ The argument is the attribute you configure a resource, for example, you need to
 
 At last, you need to prepare your application code, the key point is to let your application communicate with dynamodb. Fortunately, aws provide a python framework boto3 for us to interact with dynamodb api, you just need to write simple codes to accomplish it. 
 - like: 
+        
         def get_recomm(user_id):
-        """Use dynamodb client, don't use resource to define a dynamodb object"""
-
             dynamodb = boto3.client('dynamodb', region_name="ap-east-1")
                 key = {
                 "UserID": {"N": user_id}
