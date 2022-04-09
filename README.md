@@ -54,4 +54,6 @@ We check the aws platform, we will see all the instances are in health status:
 ![health_status](./alb_health_check.jpeg)  
 
 Now, you can use the domain name of ALB plus port 5000 to verify the result as show in the beginning of the lab.
+
+At last, remember to destroy all the resources using `terraform destroy`.
    
