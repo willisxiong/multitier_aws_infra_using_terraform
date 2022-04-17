@@ -31,8 +31,7 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity          = 3
   health_check_type         = "ELB"
   health_check_grace_period = 300
-  vpc_zone_identifier       = [aws_subnet.private1.id, aws_subnet.private2.id, aws_subnet.private3.id]
-  #launch_configuration      = aws_launch_configuration.asg-conf.name
+  vpc_zone_identifier       = aws_subnet.private[*].id
   launch_template {
     id = aws_launch_template.web_template.id
   }
@@ -40,9 +39,7 @@ resource "aws_autoscaling_group" "asg" {
   metrics_granularity = "1Minute"
 
   depends_on = [
-    aws_nat_gateway.nat1,
-    aws_nat_gateway.nat2,
-    aws_nat_gateway.nat3,
+    aws_nat_gateway.nat,
   ]
 }
 
