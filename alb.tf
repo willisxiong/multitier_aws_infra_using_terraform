@@ -7,7 +7,7 @@ resource "aws_lb" "alb" {
   idle_timeout    = 90
   security_groups = [aws_security_group.alb_sg.id]
   # Configure the alb in public subnets
-  subnets                          = [aws_subnet.public1.id, aws_subnet.public2.id, aws_subnet.public3.id]
+  subnets                          = aws_subnet.public[*].id
   enable_cross_zone_load_balancing = true
 
   tags = {
