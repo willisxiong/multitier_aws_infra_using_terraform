@@ -13,34 +13,14 @@ variable "availability-zone" {
   default = ["ap-east-1a", "ap-east-1b", "ap-east-1c"]
 }
 
-variable "private-subnet1" {
-  type    = string
-  default = "10.10.1.0/24"
+variable "private-subnets" {
+  type    = list(string)
+  default = ["10.10.1.0/24", "10.10.2.0/24", "10.10.3.0/24"]
 }
 
-variable "private-subnet2" {
-  type    = string
-  default = "10.10.2.0/24"
-}
-
-variable "private-subnet3" {
-  type    = string
-  default = "10.10.3.0/24"
-}
-
-variable "public-subnet1" {
-  type    = string
-  default = "10.10.4.0/24"
-}
-
-variable "public-subnet2" {
-  type    = string
-  default = "10.10.5.0/24"
-}
-
-variable "public-subnet3" {
-  type    = string
-  default = "10.10.6.0/24"
+variable "public-subnets" {
+  type    = list(string)
+  default = ["10.10.4.0/24", "10.10.5.0/24", "10.10.6.0/24"]
 }
 
 variable "ec2-type" {
